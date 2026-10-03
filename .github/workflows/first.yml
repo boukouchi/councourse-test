@@ -22,5 +22,15 @@ jobs:
       - name: Step Two
         run: "Get-ChildItem Env: | Sort-Object Name"
 
+  job3:
+    needs: [job1, job2]
+    name: Third Job
+    runs-on: windows-latest
+    steps:
+      - name: Step One
+        uses: actions/checkout@v4
+      - name: Step Two
+        run: "Get-ChildItem | Sort-Object Name"        
+
 
   
